@@ -62,7 +62,7 @@ export class AuthServices {
   static async getAllUsers(query: Record<string, unknown>) {
     const userQuery = new QueryBuilder(UserModel.find(), query).filter();
 
-    const result = userQuery.getQuery().exec();
+    const result = userQuery.modelQuery.exec();
 
     return result;
   }
