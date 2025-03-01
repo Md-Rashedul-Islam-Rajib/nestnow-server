@@ -7,5 +7,6 @@ export type TRentalHouse = {
   rent_amount: string;
   number_of_bedrooms: string;
   multiple_images: string[];
-  landlord_ID: Types.ObjectId;
+    landlord_ID: Types.ObjectId;
+    isDeleted: boolean;
 };
