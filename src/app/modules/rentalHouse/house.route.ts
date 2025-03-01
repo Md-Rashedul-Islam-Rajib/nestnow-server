@@ -3,8 +3,10 @@ import { RentalHouseController } from "./house.controller";
 
 const RentalHouseRouter: Router = Router();
 
-RentalHouseRouter.post('/create', RentalHouseController.createRentalHouse);
-RentalHouseRouter.get('/', RentalHouseController.getAllRentalHouses);
-RentalHouseRouter.get('/:id', RentalHouseController.getSingleRentalHouse);
-RentalHouseRouter.put('/:id', RentalHouseController.updateRentalHouse);
-RentalHouseRouter.delete('/:id', RentalHouseController.deleteRentalHouse);
+RentalHouseRouter.post('/listings/create', RentalHouseController.createRentalHouse);
+RentalHouseRouter.get('/listings/', RentalHouseController.getAllRentalHouses);
+RentalHouseRouter.get('/listings/:id', RentalHouseController.getSingleRentalHouse);
+RentalHouseRouter.put('/listings/:id', RentalHouseController.updateRentalHouse);
+RentalHouseRouter.delete('/listings/:id', RentalHouseController.deleteRentalHouse);
+
+export default RentalHouseRouter;
