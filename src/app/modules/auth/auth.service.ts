@@ -60,9 +60,10 @@ export class AuthServices {
     };
   }
   static async getAllUsers(query: Record<string, unknown>) {
-    const userQuery = new QueryBuilder(UserModel.find(), query).filter();
+    const userQuery = UserModel.find({ isDeleted: { $ne: true } });
+    const queryBuilder = new QueryBuilder(userQuery, query);
 
-    const result = userQuery.modelQuery.exec();
+    const result = await queryBuilder.modelQuery;
 
     return result;
   }
@@ -102,6 +103,14 @@ export class AuthServices {
       message: `User ${isBlocked ? 'blocked' : 'unblocked'} successfully`,
     };
   }
+    static async deleteUser(id: string) {
+      const result = await UserModel.findByIdAndUpdate(
+        id,
+        { isDeleted: true },
+        { new: true, runValidators: true },
+      );
+      return result;
+    }
 
   static async changePassword(updatedData: {
     email: string;

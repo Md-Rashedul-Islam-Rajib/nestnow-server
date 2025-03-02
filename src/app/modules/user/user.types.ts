@@ -8,6 +8,7 @@ export type TUser = {
   phone: number | string;
   role: 'admin' | 'landlord' | 'tenant';
   isBlocked?: boolean;
+  isDeleted?: boolean;
 };
 
 export interface UserStatics extends Model<TUser> {

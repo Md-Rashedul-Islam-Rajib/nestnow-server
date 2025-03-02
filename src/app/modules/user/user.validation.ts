@@ -11,4 +11,5 @@ export const userCreationSchema = z.object({
     .max(20, { message: 'Password cannot be more than 20 characters!' }),
   role: z.enum(['landlord','tenant', 'admin']),
   isBlocked: z.boolean().optional().default(false),
+  isDeleted: z.boolean().optional().default(false)
 });

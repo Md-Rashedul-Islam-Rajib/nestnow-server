@@ -42,6 +42,11 @@ export class AuthControllers {
     sendResponse(res, 200, true, 'User retrieved successfully', data);
   });
 
+  static deleteUser = catchAsync(async (req, res) => {
+    const data = await AuthServices.deleteUser(req.params.id);
+    sendResponse(res, 200, true, 'User deleted successfully', data);
+  });
+
   static toggleUserBlock = catchAsync(async (req, res) => {
     const { id } = req.params;
     const { isBlocked } = req.body;

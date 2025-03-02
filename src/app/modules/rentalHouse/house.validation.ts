@@ -15,12 +15,12 @@ export const rentalHouseCreationSchema = z.object({
 });
 
 export const updateRentalHouseSchema = z.object({
-  _id: z.string().optional(), // _id is optional for updates
+  _id: z.string().optional(), 
   rental_house_location: z.string().optional(),
   details_description: z.string().optional(),
   rent_amount: z.string().optional(),
   number_of_bedrooms: z.string().optional(),
   multiple_images: z.array(z.string()).optional(),
-  landlord_ID: z.custom<Types.ObjectId>().optional(), // Optional for updates
+  landlord_ID: z.custom<Types.ObjectId>().optional(), 
   isDeleted: z.boolean().optional(),
 });

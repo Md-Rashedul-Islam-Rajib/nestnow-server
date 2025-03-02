@@ -46,5 +46,6 @@ export class RentalHouseServices {
       { isDeleted: true },
       { new: true, runValidators: true },
     );
+    return result;
   }
 }
