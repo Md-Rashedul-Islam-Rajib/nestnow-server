@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>New Rental Request</title>
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+      }
+
+      .container {
+         max-width: 600px;
+         margin: 20px auto;
+         padding: 20px;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+      }
+
+      .header {
+         background-color: #f4f4f4;
+         padding: 10px;
+         text-align: center;
+         border-radius: 5px;
+      }
+
+      .content {
+         margin-top: 20px;
+         text-align: center;
+      }
+
+      .btn {
+         display: inline-block;
+         background-color: #007bff;
+         padding: 10px 20px;
+         color: #fff;
+         font-size: 18px;
+         font-weight: bold;
+         border-radius: 5px;
+         text-decoration: none;
+         margin-top: 10px;
+      }
+
+      .footer {
+         margin-top: 20px;
+         font-size: 14px;
+         color: #666;
+         text-align: center;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <div class="header">
+         <h2>New Rental Request</h2>
+      </div>
+      <div class="content">
+         <p>Hello {{landlordName}},</p>
+         <p>You have received a new rental request for <strong>{{propertyTitle}}</strong>.</p>
+         <p>Tenant Name: <strong>{{tenantName}}</strong></p>
+         <p>Tenant Contact: <strong>{{tenantEmail}}</strong></p>
+         <p>Please review the request and respond accordingly.</p>
+         <a href="{{rentalRequestLink}}" class="btn">View Request</a>
+      </div>
+      <div class="footer">
+         <p>Thank you for using NestNow!</p>
+      </div>
+   </div>
+</body>
+
+</html>

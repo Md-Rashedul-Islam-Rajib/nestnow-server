@@ -3,6 +3,10 @@ import { TRentalHouse } from './house.types';
 
 const houseRentalSchema = new Schema<TRentalHouse>(
   {
+    title: {
+      type: String,
+      required: true
+    },
     rental_house_location: {
       type: String,
       required: true,
