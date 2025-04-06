@@ -3,10 +3,16 @@ import { RentalHouseController } from "./house.controller";
 import auth from "../../middlewares/auth";
 import { USER_ROLE } from "../user/user.constant";
 import { RentalRequestController } from "../rentalRequest/request.controller";
+import { upload } from "../../config/cloudinary";
 
 const RentalHouseRouter: Router = Router();
 
-RentalHouseRouter.post('/listings',auth(USER_ROLE.landlord), RentalHouseController.createRentalHouse);
+RentalHouseRouter.post(
+  '/listings',
+  auth(USER_ROLE.landlord),
+  upload.array('images', 10),
+  RentalHouseController.createRentalHouse,
+);
 RentalHouseRouter.get(
   '/listings/',
   auth(USER_ROLE.landlord),

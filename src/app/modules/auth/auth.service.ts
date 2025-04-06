@@ -36,7 +36,10 @@ export class AuthServices {
         401,
       );
     }
-
+console.log({
+  email: user.email,
+  role: user.role,
+});
     const jwtPayload = {
       email: user.email,
       role: user.role,
@@ -57,6 +60,8 @@ export class AuthServices {
     return {
       accessToken,
       refreshToken,
+      email: user.email,
+      role: user.role,
     };
   }
   static async getAllUsers(query: Record<string, unknown>) {

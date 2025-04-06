@@ -4,7 +4,21 @@ import { RentalHouseServices } from "./house.service";
 
 export class RentalHouseController {
   static createRentalHouse = catchAsync(async (req, res) => {
-    const data = await RentalHouseServices.createRentalHouse(req.body);
+     if (req.body.amenities && typeof req.body.amenities === 'string') {
+       try {
+         req.body.amenities = JSON.parse(req.body.amenities);
+       } catch (error) {
+         return res.status(400).json({
+           success: false,
+           message: 'Invalid amenities format. Must be a JSON array.',
+         });
+       }
+     }
+     const data = await RentalHouseServices.createRentalHouse(
+       req.body,
+       req.files as Express.Multer.File[],
+    );
+    console.log("controller", data);
     sendResponse(res, 201, true, 'Rental house created successfully', data);
   });
 

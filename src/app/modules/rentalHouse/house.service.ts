@@ -3,8 +3,12 @@ import { RentalHouseModel } from "./house.model";
 import { TRentalHouse } from "./house.types";
 
 export class RentalHouseServices {
-  static async createRentalHouse(payload: TRentalHouse) {
-    const result = await RentalHouseModel.create(payload);
+  static async createRentalHouse(payload: any, files: Express.Multer.File[]) {
+    const imageUrls = files.map((file) => file.path);
+    const result = await RentalHouseModel.create({
+      ...payload,
+      images: imageUrls,
+    });
     return result;
   }
 
@@ -12,7 +16,13 @@ export class RentalHouseServices {
     const modelQuery = RentalHouseModel.find({ isDeleted: { $ne: true } });
 
     const queryBuilder = new QueryBuilder(modelQuery, query)
-      .search(['title', 'description', 'location', 'rent_amount','number_of_bedrooms'])
+      .search([
+        'title',
+        'description',
+        'location',
+        'rent_amount',
+        'number_of_bedrooms',
+      ])
       .filter()
       .priceRange()
       .filterByBedrooms()

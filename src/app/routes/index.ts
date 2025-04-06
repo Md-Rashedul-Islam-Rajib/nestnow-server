@@ -3,6 +3,7 @@ import AuthRouter from '../modules/auth/auth.route';
 import RentalHouseRouter from '../modules/rentalHouse/house.route';
 import RentalRequestRouter from '../modules/rentalRequest/request.route';
 import AdminRouter from '../modules/admin/admin.route';
+import UploadRouter from '../modules/upload/upload.route';
 
 
 
@@ -24,6 +25,9 @@ const allRoutes = [
   {
     path: '/admin',
     route: AdminRouter
+  }, {
+    path: '/api',
+    route: UploadRouter
   }
   
 ];
